@@ -1,9 +1,12 @@
-﻿
+﻿using EmployeesWorkerTime.Model;
+using System.Runtime.CompilerServices;
+
+namespace EmployeesWorkerTime.EmployeeCardFinancy;
 
 
 public class ConcreteEmployeeFixBet : AbstractEmployeeCard
 {
-    public ConcreteEmployeeFixBet(Employee employee, decimal bet, BetType unit) : base(employee, bet, unit)
+    public ConcreteEmployeeFixBet(BetType unit) : base(unit)
     {
     }
 

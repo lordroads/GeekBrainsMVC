@@ -1,4 +1,4 @@
-﻿
+﻿namespace EmployeesWorkerTime.Model;
 
 
 public class Employee
@@ -16,6 +16,6 @@ public class Employee
 
     public override string ToString()
     {
-        return $"{LastName} {FirstName} {MiddleName}";
+        return $"{LastName}\t{FirstName}\t{MiddleName}\t";
     }
 }

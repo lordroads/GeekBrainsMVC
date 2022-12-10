@@ -1,9 +1,11 @@
-﻿
+﻿using EmployeesWorkerTime.Model;
+
+namespace EmployeesWorkerTime.EmployeeCardFinancy;
 
 
 public class ConcreteEmployeeBetInHour : AbstractEmployeeCard
 {
-    public ConcreteEmployeeBetInHour(Employee employee, decimal bet, BetType unit) : base(employee, bet, unit)
+    public ConcreteEmployeeBetInHour(BetType unit) : base(unit)
     {
     }
 

@@ -1,4 +1,4 @@
-﻿
+﻿namespace EmployeesWorkerTime.EmployeeCardFinancy;
 
 
 public enum BetType

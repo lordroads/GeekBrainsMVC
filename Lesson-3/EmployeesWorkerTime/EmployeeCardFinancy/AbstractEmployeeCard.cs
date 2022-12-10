@@ -1,16 +1,16 @@
-﻿
+﻿using EmployeesWorkerTime.Model;
+
+namespace EmployeesWorkerTime.EmployeeCardFinancy;
 
 
 public abstract class AbstractEmployeeCard
 {
-    public Employee Employee { get; }
+    public Employee Employee { get; set; }
     public BetType UnitOfMeasure { get; set; }
     public decimal Bet { get; set; }
 
-    public AbstractEmployeeCard(Employee employee, decimal bet, BetType unitOfMeasure)
+    public AbstractEmployeeCard(BetType unitOfMeasure)
     {
-        Employee = employee;
-        Bet = bet;
         UnitOfMeasure = unitOfMeasure;
     }
 
@@ -23,6 +23,6 @@ public abstract class AbstractEmployeeCard
 
     public override string ToString()
     {
-        return $"{Employee} - {SalaryСalculation()} /{UnitOfMeasure}/";
+        return $"{Employee}\t{SalaryСalculation()}\t\t/Type bet: {UnitOfMeasure}/";
     }
 }
