@@ -1,0 +1,15 @@
+{
+  "defaultAssembly": "Client",
+  "components": [
+    {
+      "type": "Client.Service.Impl.OrderService, Client",
+      "services": [
+        {
+          "type": "Client.Service.IOrderService"
+        }
+      ],
+      "injectProperties": true,
+      "instanceScope": "perdependency"
+    }
+  ]
+}
