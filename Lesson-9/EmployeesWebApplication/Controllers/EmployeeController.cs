@@ -44,8 +44,14 @@ namespace EmployeesWebApplication.Controllers
             return View("Edit", new EmployeesViewModel());
         }
 
+        [HttpPost]
         public IActionResult Edit(EmployeesViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", model);
+            }
+
             var employee = new Employee
             {
                 Id = model.Id,
@@ -73,14 +79,58 @@ namespace EmployeesWebApplication.Controllers
             }            
         }
 
-        //public IActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+        public IActionResult Edit(int? id)
+        {
+            if (id is null)
+            {
+                return NotFound();
+            }
+
+            var employee = _employeesRepository.GetById(id);
+            if (employee is null)
+            {
+                return NotFound();
+            }
+
+            return View("Edit", new EmployeesViewModel
+            {
+                Id = employee.Id,
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                Patronymic = employee.Patronymic,
+                Birthday = employee.Birthday
+            });
+        }
 
         public IActionResult Delete(int id)
         {
-            return View();
+            var employee = _employeesRepository.GetById(id);
+            if (employee is null)
+            {
+                return NotFound();
+            }
+
+            return View("Delete", new EmployeesViewModel
+            {
+                Id = employee.Id,
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                Patronymic = employee.Patronymic,
+                Birthday = employee.Birthday
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Delete(EmployeesViewModel employeesViewModel)
+        {
+            var result = _employeesRepository.Remove(employeesViewModel.Id);
+
+            if (!result) 
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

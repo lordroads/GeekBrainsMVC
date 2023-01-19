@@ -51,7 +51,7 @@ public class EmployeesRepository : IEmployeesRepository
         return _employees;
     }
 
-    public Employee? GetById(int id)
+    public Employee? GetById(int? id)
     {
         return _employees.FirstOrDefault(employee => employee.Id == id);
     }
