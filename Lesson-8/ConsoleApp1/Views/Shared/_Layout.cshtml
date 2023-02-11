@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+
+    <title>@ViewData["Title"]</title>
+
+    <partial name="Partials/_Styles" />
+
+</head>
+
+<body>
+    <partial name="Partials/_Header" />
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <partial name="Partials/_Footer" />
+
+    <partial name="Partials/_Scripts" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

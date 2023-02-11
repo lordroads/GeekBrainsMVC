@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Buyer>
+
+<div class="text-center">
+    <h1 class="display-4">База данных покупателей</h1>
+</div>
+
+
+@{
+    if (Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Отчество</th>
+                    <th>День Рождения</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var buyer in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@buyer.Id</td>
+                    <td>
+                        @buyer.LastName
+                    </td>
+                    <td>@buyer.Name</td>
+                    <td>@buyer.Patronymic</td>
+                    <td>@buyer.Birthday.ToString("dd.MM.yy")</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Покупателей пока нет.</p>
+    }
+}
