@@ -15,6 +15,8 @@ namespace Client.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Title"] = "Главная страница";
+
             return View(_buyerRepository.GetAll());
         }
     }
