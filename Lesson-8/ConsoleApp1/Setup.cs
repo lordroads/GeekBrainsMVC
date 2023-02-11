@@ -53,6 +53,7 @@ public class Setup
             {
                 container.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
                 container.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
+                container.RegisterType<BuyerRepository>().As<IBuyerRepository>().InstancePerLifetimeScope();
                 container.RegisterType<ProductReportWord>().As<IProductReport>().WithParameter("templateFile", "Templates/TemplateProductCatalog.docx").InstancePerLifetimeScope();
                 container.RegisterType<OrderReportWord>().As<IOrderReport>().WithParameter("templateFile", "Templates/TemplateOrderReport.docx").InstancePerLifetimeScope();
             })
